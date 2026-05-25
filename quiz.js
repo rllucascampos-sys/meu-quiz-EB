@@ -11,7 +11,7 @@ let ebcoinsAtual = usuarioLogado.ebcoins;
 let feedbackAtivo = false;
 
 // URL do seu backend Node.js (ou do Render/nuvem se for o caso)
-const API_URL = 'https://sua-api-do-render.onrender.com';
+const API_URL = 'https://meu-quiz-eb.onrender.com';
 
 // Itens oficiais do Mercado (6 itens)
 const itensLoja = [
