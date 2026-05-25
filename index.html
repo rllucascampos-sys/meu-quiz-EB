@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Point EB - Desafios</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="quiz-page-container">
+        <div class="icone-mercado-flutuante" id="btn-abrir-loja">🛒</div>
+
+        <div class="container">
+            <header class="header-quiz">
+                <div class="perfil">
+                    <span id="nome-usuario">👤 Carregando usuário...</span>
+                    <span> | 💰 <strong id="ebcoins">0</strong> EBcoins</span>
+                </div>
+                <button class="btn-ranking" id="btn-abrir-ranking">🏆 Ranking</button>
+            </header>
+
+            <section class="quiz-dp">
+                <div class="quiz-dp-area">
+                    <div class="pergunta-card" id="card-conteudo">
+                        <h2>Carregando Desafios...</h2>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="modal-ranking" id="modal-ranking" style="display: none;">
+        <div class="ranking-content">
+            <span class="close-ranking" id="btn-fechar-ranking">&times;</span>
+            <h3>🏆 Top 5 EBthianos</h3>
+            <div class="ranking-lista" id="lista-ranking"></div>
+        </div>
+    </div>
+
+    <div class="modal-loja" id="modal-loja" style="display: none;">
+        <div class="loja-content">
+            <span class="close-loja" id="btn-fechar-loja">&times;</span>
+            <h2>🏪 Mercado EB Point</h2>
+            <p>Seu saldo: <strong id="saldo-loja">0</strong> EBcoins</p>
+            <div class="grid-itens" id="grid-produtos"></div>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

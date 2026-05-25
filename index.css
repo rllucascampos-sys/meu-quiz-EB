@@ -1,0 +1,133 @@
+/* === VARIÁVEIS === */
+:root {
+    --primary-color: #018efa;
+    --secondary-color: #ff9800;
+    --background-color: #020145;
+    --card-background: #ffffff;
+    --success-color: #4caf50;
+    --error-color: #ff0000;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --quiz-bg: #0385ff;
+    --quiz-deep-bg: #00095c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--quiz-deep-bg);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    background-image: linear-gradient(rgba(10, 20, 40, 0.8), rgba(10, 20, 40, 0.8)), url('fundo-login.png.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* === LAYOUT DO QUIZ === */
+.quiz-page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    background-color: var(--quiz-bg);
+    margin: 10px auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header-quiz {
+    display: flex; justify-content: space-between; align-items: center;
+    background-color: #0084ff; color: white; padding: 15px 25px; width: 100%; box-sizing: border-box;
+}
+
+#ebcoins { color: var(--secondary-color); font-weight: bold; }
+
+.btn-ranking {
+    padding: 8px 18px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; color: white;
+    background-color: var(--secondary-color);
+}
+.btn-ranking:hover { background-color: #e68a00; transform: scale(1.05); }
+
+.pergunta-card {
+    background: white; padding: 30px; border-radius: 10px; margin: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; color: #333;
+}
+
+.opcoes { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+.opcoes button {
+    display: block; width: 100%; text-align: left; background-color: #f8f9fa; border: 1px solid #ddd;
+    border-radius: 8px; padding: 16px 20px; font-size: 1.05em; cursor: pointer; transition: 0.2s; border-left: 6px solid transparent;
+}
+.opcoes button:hover:not(:disabled) { background-color: #e9ecef; border-left-color: var(--primary-color); transform: translateX(5px); }
+
+.feedback-box { margin-top: 20px; padding: 15px; border-radius: 8px; font-weight: bold; text-align: center; }
+.feedback-acertou { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.feedback-errou { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* === MODAIS === */
+.modal-loja, .modal-ranking {
+    position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px);
+}
+
+.loja-content, .ranking-content {
+    background-color: white; padding: 40px 30px 30px; width: 95%; border-radius: 20px; position: relative; box-shadow: var(--shadow); color: #333;
+}
+.loja-content { max-width: 850px; }
+.ranking-content { max-width: 450px; }
+
+.close-loja, .close-ranking {
+    position: absolute; right: 15px; top: 15px; background-color: #e74c3c; color: white;
+    width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 18px; font-weight: bold; transition: all 0.3s ease; z-index: 10;
+}
+.close-loja:hover, .close-ranking:hover { background-color: #c0392b; transform: scale(1.1) rotate(90deg); }
+
+.ranking-lista { margin: 20px 0; text-align: left; }
+.ranking-item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #eee; }
+.ranking-item:first-child { background-color: #fff3e0; font-weight: bold; border-radius: 8px; }
+
+/* Grid de 5 Colunas */
+.grid-itens { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 25px; }
+.item-card {
+    border: 1px solid #eee; padding: 15px 10px; border-radius: 12px; background: #fdfdfd;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+}
+.icone-item { font-size: 30px; margin-bottom: 5px; }
+
+.btn-previa {
+    width: 100%; padding: 8px; background-color: #34495e; color: white; border: none;
+    border-radius: 6px; font-weight: bold; cursor: pointer; margin-bottom: 8px; font-size: 0.8em; transition: 0.3s;
+}
+.btn-previa:hover { background-color: #2c3e50; }
+
+.item-card button.btn-comprar {
+    width: 100%; padding: 8px; background-color: #27ae60; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.item-card button.btn-comprar:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+
+.icone-mercado-flutuante {
+    position: fixed; right: 0; top: 50%; transform: translateY(-50%); background-color: #27ae60;
+    color: white; padding: 15px 20px; border-radius: 15px 0 0 15px; cursor: pointer; font-size: 30px; z-index: 5000; box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+}
